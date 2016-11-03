@@ -40,16 +40,19 @@
 		});
 
 		// We setup our request
-		XHR.open('POST', 'http://ucommbieber.unl.edu/CORS/cors.php');
+		XHR.open('POST', 'http://coop.apps.knpuniversity.com/application/api/1150/barn-unlock');
 
   	// We add the required HTTP header to handle a form data POST request
 		XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-		XHR.setRequestHeader('Content-Length', urlEncodedData.length);
+		// XHR.setRequestHeader('Content-Length', urlEncodedData.length);
+		XHR.setRequestHeader('Authorization', 'Bearer 6a1a499c350981e718596a50cdec0a1dec40a490');
 
   	// And finally, We send our data.
 		XHR.send(urlEncodedData);
 
 	}
+
+	// 6a1a499c350981e718596a50cdec0a1dec40a490
 
 
   // if (document.querySelector('#email') && document.querySelector('#password')) {
