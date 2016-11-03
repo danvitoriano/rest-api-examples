@@ -30,7 +30,7 @@
 		urlEncodedData - urlEncodedDataPairs.join('&').replace(/%20/g, '+');
 
   	// We define what will happen if the data is successfully sent
-		XHR.addEventListener('load', fucntion(event){
+		XHR.addEventListener('load', function(event){
 			alert("Yeah Data sent and response loaded");
 		});
 
