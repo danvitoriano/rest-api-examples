@@ -7,8 +7,8 @@
 		$.ajax({
 		  type: 'POST',
 		  url: 'https://jsonplaceholder.typicode.com/posts',
-		  data: {	title: 'foo',
-    					body: 'bar',
+		  data: {	title: name1,
+    					body: age1,
     					userId: 1},
 		  success: function(data) {
 		    console.log("Friend added!", data); //the new item is returned with an ID
