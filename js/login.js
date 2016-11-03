@@ -6,8 +6,10 @@
 		var age1 = $("#age1").val();
 		$.ajax({
 		  type: 'POST',
-		  url: 'https://rest.learncode.academy/api/johnbob/friends',
-		  data: {name: name1, age: age1},
+		  url: 'https://jsonplaceholder.typicode.com/posts',
+		  data: {	title: 'foo',
+    					body: 'bar',
+    					userId: 1},
 		  success: function(data) {
 		    console.log("Friend added!", data); //the new item is returned with an ID
 		    $("#res1").addClass("alert-success");
