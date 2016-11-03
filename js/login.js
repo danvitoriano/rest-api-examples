@@ -1,5 +1,3 @@
-;
-(function() {
 
 	var xhr = new XMLHttpRequest();
 
@@ -40,6 +38,3 @@
   //     console.log('não enviou');
   //   });
   // };
-
-
-})();
