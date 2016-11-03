@@ -1,81 +1,44 @@
+;
+(function(){
 
-	// var xhr = new XMLHttpRequest();
+	$("#btn-submit1").click(function(){
+		var name1 = $("#name1").val();
+		var age1 = $("#age1").val();
+		$.ajax({
+		  type: 'POST',
+		  url: 'http://rest.learncode.academy/api/johnbob/friends',
+		  data: {name: name1, age: age1},
+		  success: function(data) {
+		    console.log("Friend added!", data); //the new item is returned with an ID
+		    $("#res1").addClass("alert-success");
+		    $("#res1").html("Name: <b>" + name1 + "</b> | Age: <b>" + age1 + "</b> | ID: <b>" + data.id + "</b>");
+		    $("#form1")[0].reset();
+		  }
+		});
+	});
 
-	// xhr.open('GET', "//ipinfo.io/json", true);
-	// xhr.send();
+	document.getElementById("btn-submit2").addEventListener("click", function(){
+		var name2 = document.getElementById("name2").value;
+		var age2 = document.getElementById("age2").value;
+		var http = new XMLHttpRequest();
+		var params = "name=" + name2 + "&age=" + age2;
+		var url = "http://rest.learncode.academy/api/johnbob/friends";
 
-	// xhr.onreadystatechange = processRequest;
+		http.open("POST", url, true);
 
-	// function processRequest(e){
-	// 	if(xhr.readyState == 4 && xht.status == 200){
-	// 		var response = JSON.parse(xhr.responseText);
-	// 		alert(response.ip);
-	// 	}
-	// }
+		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-
-	function sendData(data){
-		var XHR = new XMLHttpRequest();
-		var urlEncodedData = "";
-		var urlEncodedDataPairs = [];
-		var name;
-
-		// We turn the data object into an array of URL encoded key value pairs.
-		for (name in data){
-			urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]));
+		http.onreadystatechange = function(){
+			if(http.readyState == 4 && http.status == 200){
+				console.log("Friend added!", http.responseText);
+		    document.getElementById("res2").className += " alert-success";
+		    var jsonResponse = JSON.parse(http.responseText);
+		    document.getElementById("res2").innerHTML = "Name: <b>" + name2 + "</b> | Age: <b>" + age2 + "</b> | ID: <b>" + jsonResponse["id"] + "</b>";
+		    document.getElementById("form2").reset();
+			}
 		}
-		
-		// We combine the pairs into a single string and replace all encoded spaces to 
-  	// the plus character to match the behaviour of the web browser form submit.
-		urlEncodedData - urlEncodedDataPairs.join('&').replace(/%20/g, '+');
-
-  	// We define what will happen if the data is successfully sent
-		XHR.addEventListener('load', function(event){
-			alert("Yeah Data sent and response loaded");
-		});
-
-  	// We define what will happen in case of error
-		XHR.addEventListener('error', function(event){
-			alert("Oups! Something goes wrong.");
-		});
-
-		// We setup our request
-		XHR.open('POST', 'http://coop.apps.knpuniversity.com/application/api/1150/barn-unlock');
-
-  	// We add the required HTTP header to handle a form data POST request
-		XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-		// XHR.setRequestHeader('Content-Length', urlEncodedData.length);
-		XHR.setRequestHeader('Authorization', 'Bearer 6a1a499c350981e718596a50cdec0a1dec40a490');
-
-  	// And finally, We send our data.
-		XHR.send(urlEncodedData);
-
-	}
-
-	// 6a1a499c350981e718596a50cdec0a1dec40a490
+		http.send(params);
+	});
 
 
-  // if (document.querySelector('#email') && document.querySelector('#password')) {
-  //   var req = {
-  //     method: 'POST',
-  //     url: 'http://projeto-3.homolog.infra:15000/oi-partner-api/oauth/authorize?client_id=web-client&response_type=token&redirect_uri=http://localhost:3000/login/',
-  //     data: {
-  //       login: $scope.user,
-  //       password: $scope.password,
-  //       type: 'LOGIN_CPF',
-  //       service: 'CLOUD'
-  //     },
-  //     headers: {
-  //       'Audit': $scope.user,
-  //       'Content-Type': 'application/json',
-  //       'Partner': 'CASAS_BAHIA'
-  //     }
-
-  //   }
-
-  //   $http(req).then(function(response) {
-  //     console.log('enviou');
-  //   }, function(response) {
-  //     console.log('não enviou');
-  //   });
-  // };
+})();
