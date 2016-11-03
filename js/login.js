@@ -31,7 +31,7 @@
 
   	// We define what will happen if the data is successfully sent
 		XHR.addEventListener('load', fucntion(event){
-			alert("Yeah! Data sent and response loaded");
+			alert("Yeah Data sent and response loaded");
 		});
 
   	// We define what will happen in case of error
