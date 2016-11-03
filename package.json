@@ -1,0 +1,26 @@
+{
+  "name": "the-coop-angularjs",
+  "version": "1.0.0",
+  "description": "The Coop's API integration POC with AngularJS and oAuth",
+  "main": "login.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danvitoriano/the-coop-angularjs.git"
+  },
+  "keywords": [
+    "angularjs",
+    "api"
+  ],
+  "author": "danvitoriano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danvitoriano/the-coop-angularjs/issues"
+  },
+  "homepage": "https://github.com/danvitoriano/the-coop-angularjs#readme",
+  "dependencies": {
+    "gulp-install": "^0.6.0"
+  }
+}
