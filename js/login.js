@@ -6,7 +6,7 @@
 		var age1 = $("#age1").val();
 		$.ajax({
 		  type: 'POST',
-		  url: 'http://rest.learncode.academy/api/johnbob/friends',
+		  url: 'https://rest.learncode.academy/api/johnbob/friends',
 		  data: {name: name1, age: age1},
 		  success: function(data) {
 		    console.log("Friend added!", data); //the new item is returned with an ID
@@ -22,7 +22,7 @@
 		var age2 = document.getElementById("age2").value;
 		var http = new XMLHttpRequest();
 		var params = "name=" + name2 + "&age=" + age2;
-		var url = "http://rest.learncode.academy/api/johnbob/friends";
+		var url = "https://rest.learncode.academy/api/johnbob/friends";
 
 		http.open("POST", url, true);
 
