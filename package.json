@@ -1,29 +1,25 @@
 {
-  "name": "the-coop-angularjs",
-  "version": "1.0.0",
-  "description": "The Coop's API integration POC with AngularJS and oAuth",
-  "main": "login.html",
+  "name": "rest-api-examples",
+  "version": "1.0.2",
+  "description": "It uses JSONPlaceholder Fake Online REST API for Testing and Prototyping",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danvitoriano/the-coop-angularjs.git"
+    "url": "git+https://github.com/danvitoriano/rest-api-examples.git"
   },
   "keywords": [
-    "angularjs",
     "api"
   ],
   "author": "danvitoriano",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/danvitoriano/the-coop-angularjs/issues"
+    "url": "https://github.com/danvitoriano/rest-api-examples/issues"
   },
-  "homepage": "https://github.com/danvitoriano/the-coop-angularjs#readme",
+  "homepage": "https://github.com/danvitoriano/rest-api-examples#readme",
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.5",
-    "gulp-install": "^0.6.0",
-    "jquery": "^3.1.1",
     "serve": "^1.4.0"
   }
 }
