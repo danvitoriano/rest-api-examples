@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/danvitoriano/the-coop-angularjs#readme",
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.0.0-alpha.5",
     "gulp-install": "^0.6.0",
     "jquery": "^3.1.1",
     "serve": "^1.4.0"
