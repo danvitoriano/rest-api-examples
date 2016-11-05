@@ -119,8 +119,9 @@
 
       http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-      http.onreadystatechange = function() {
-        if (http.readyState == 4 && http.status >= 200 && http.status <= 299) {
+      http.onload = function () {
+			    if (http.readyState === http.DONE) {
+			        if (http.status === 200) {
           console.log("Content loaded!", http.responseText);
           document.getElementById("res-5").innerHTML = "<p class='text-success mt-2' role=alert>" + http.responseText + "</p>";
           document.getElementById("form-5").reset();
@@ -129,7 +130,36 @@
           document.getElementById("res-5").innerHTML = "<p class='text-danger mt-2' role=alert>" + http.status + ". ID must be from 1 to 100.</p>";
         }
       }
-      http.send();
+      }
+      http.send(null);
+    });
+  }();
+
+  var getAllFilterJS = function() {
+    document.getElementById("btn-submit-6").addEventListener("click", function() {
+      var http = new XMLHttpRequest();
+      var url = api + "/users";
+
+      http.open("GET", url, true);
+
+      http.onload = function () {
+			    if (http.readyState === http.DONE) {
+			        if (http.status === 200) {
+			            console.log("Users loaded!", http.responseText);
+				          var obj = JSON.parse(http.responseText);
+				          var result = obj.map(function(a) {
+				          	var filterParam = document.getElementById("filter-6").value;
+				          	return a[filterParam];
+				          });
+				          document.getElementById("res-6").innerHTML = "<p class='text-success mt-2' role=alert>" + result.toString().replace(/,/g,"; ")  + "</p>";
+			        } else {
+						    console.log("Users not loaded!", http.responseText);
+			          document.getElementById("res-6").innerHTML = "<p class='text-danger mt-2' role=alert>" + http.status + "</p>";
+			        }
+			    }
+			};
+
+      http.send(null);
     });
   }();
 

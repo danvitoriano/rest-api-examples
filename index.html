@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="lib/bootstrap-4/css/bootstrap.min.css" media="screen">
   <link rel="stylesheet" type="text/css" href="lib/bootstrap-4/css/bootstrap-reboot.min.css" media="screen">
-  <!-- <link rel="stylesheet" type="text/css" href="lib/bootstrap-4/css/sticky-footer.css" media="screen"> -->
 </head>
 
 <body>
   <div class="container">
+    <!-- header -->
     <div class="row">
       <div class="col-xs-10 offset-xs-1">
         <div class="jumbotron mt-2 text-xs-center">
@@ -22,107 +22,131 @@
         </div>
       </div>
     </div>
+    <!-- content -->
     <div class="row">
-        <div class="offset-xs-1 col-xs-10">
-          <div class="card-columns">
-            <div class="card card-block">
-              <h4 class="card-title">POST <small class="text-muted">jQuery</small></h4>
-              <h6 class="card-subtitle">Add Content</h6>
-              <form id="form-1" class="mt-2">
-                <div class="form-group">
-                  <label for="title-1">Title</label>
-                  <input type="text" class="form-control" id="title-1" placeholder="My Awesome Title" tabindex="1">
-                </div>
-                <div class="form-group">
-                  <label for="body-1">Body</label>
-                  <input type="text" class="form-control" id="body-1" placeholder="This is a sample body text post." tabindex="2">
-                </div>
-                <button id="btn-submit-1" type="button" class="btn btn-primary" tabindex="3">Send</button>
-              </form>
-              <div id="res-1"></div>
-            </div>
-            <div class="card card-block">
-              <h4 class="card-title">POST <small class="text-muted">JavaScript</small></h4>
-              <h6 class="card-subtitle">Add Content</h6>
-              <form id="form-2" class="mt-2">
-                <div class="form-group">
-                  <label for="title-2">Title</label>
-                  <input type="text" class="form-control" id="title-2" placeholder="My Awesome Title" tabindex="4">
-                </div>
-                <div class="form-group">
-                  <label for="body-2">Body</label>
-                  <input type="text" class="form-control" id="body-2" placeholder="This is a sample body text post." tabindex="5">
-                </div>
-                <button id="btn-submit-2" type="button" class="btn btn-primary" tabindex="6">Send</button>
-              </form>
-              <div id="res-2"></div>
-            </div>
-            <div class="card card-block">
-              <h4 class="card-title">PUT <small class="text-muted">JavaScript</small></h4>
-              <h6 class="card-subtitle">Add Content</h6>
-              <form id="form-3" class="mt-2">
-                <div class="form-group">
-                  <label for="id-3">ID</label>
-                  <input type="text" class="form-control" id="id-3" placeholder="1" tabindex="7">
-                </div>
-                <div class="form-group">
-                  <label for="title-3">Title</label>
-                  <input type="text" class="form-control" id="title-3" placeholder="My Awesome Title" tabindex="8">
-                </div>
-                <div class="form-group">
-                  <label for="body-3">Body</label>
-                  <input type="text" class="form-control" id="body-3" placeholder="This is a sample body text post." tabindex="9">
-                </div>
-                <button id="btn-submit-3" type="button" class="btn btn-primary" tabindex="10">Send</button>
-              </form>
-              <div id="res-3"></div>
-            </div>
-            <div class="card card-block">
-              <h4 class="card-title">PATCH <small class="text-muted">JavaScript</small></h4>
-              <h6 class="card-subtitle">Add Content</h6>
-              <form id="form-4" class="mt-2">
-                <div class="form-group">
-                  <label for="id-4">ID</label>
-                  <input type="text" class="form-control" id="id-4" placeholder="1" tabindex="11">
-                </div>
-                <div class="form-group">
-                  <label for="title-4">Title</label>
-                  <input type="text" class="form-control" id="title-4" placeholder="My Awesome Title" tabindex="12">
-                </div>
-                <button id="btn-submit-4" type="button" class="btn btn-primary" tabindex="13">Send</button>
-              </form>
-              <div id="res-4"></div>
-            </div>
-            <div class="card card-block">
-              <h4 class="card-title">GET <small class="text-muted">JavaScript</small></h4>
-              <h6 class="card-subtitle">Load a Content</h6>
-              <form id="form-5" class="mt-2">
-                <div class="form-group">
-                  <label for="id-5">ID</label>
-                  <input type="text" class="form-control" id="id-5" placeholder="1" tabindex="14">
-                </div>
-                <button id="btn-submit-5" type="button" class="btn btn-primary" tabindex="15">Send</button>
-              </form>
-              <div id="res-5"></div>
-            </div>
+      <div class="offset-xs-1 col-xs-10">
+        <div class="card-columns">
+          <!-- post add jquery -->
+          <div class="card card-block">
+            <h4 class="card-title">POST <small class="text-muted">jQuery</small></h4>
+            <h6 class="card-subtitle">Add Content</h6>
+            <form id="form-1" class="mt-2">
+              <div class="form-group">
+                <label for="title-1">Title</label>
+                <input type="text" class="form-control" id="title-1" placeholder="My Awesome Title" tabindex="1">
+              </div>
+              <div class="form-group">
+                <label for="body-1">Body</label>
+                <input type="text" class="form-control" id="body-1" placeholder="This is a sample body text post." tabindex="2">
+              </div>
+              <button id="btn-submit-1" type="button" class="btn btn-primary" tabindex="3">Send</button>
+            </form>
+            <div id="res-1"></div>
+          </div>
+          <!-- post add js -->
+          <div class="card card-block">
+            <h4 class="card-title">POST <small class="text-muted">JavaScript</small></h4>
+            <h6 class="card-subtitle">Add Content</h6>
+            <form id="form-2" class="mt-2">
+              <div class="form-group">
+                <label for="title-2">Title</label>
+                <input type="text" class="form-control" id="title-2" placeholder="My Awesome Title" tabindex="4">
+              </div>
+              <div class="form-group">
+                <label for="body-2">Body</label>
+                <input type="text" class="form-control" id="body-2" placeholder="This is a sample body text post." tabindex="5">
+              </div>
+              <button id="btn-submit-2" type="button" class="btn btn-primary" tabindex="6">Send</button>
+            </form>
+            <div id="res-2"></div>
+          </div>
+          <!-- put update js -->
+          <div class="card card-block">
+            <h4 class="card-title">PUT <small class="text-muted">JavaScript</small></h4>
+            <h6 class="card-subtitle">Add Content</h6>
+            <form id="form-3" class="mt-2">
+              <div class="form-group">
+                <label for="id-3">ID</label>
+                <input type="text" class="form-control" id="id-3" placeholder="1" tabindex="7">
+              </div>
+              <div class="form-group">
+                <label for="title-3">Title</label>
+                <input type="text" class="form-control" id="title-3" placeholder="My Awesome Title" tabindex="8">
+              </div>
+              <div class="form-group">
+                <label for="body-3">Body</label>
+                <input type="text" class="form-control" id="body-3" placeholder="This is a sample body text post." tabindex="9">
+              </div>
+              <button id="btn-submit-3" type="button" class="btn btn-primary" tabindex="10">Send</button>
+            </form>
+            <div id="res-3"></div>
+          </div>
+          <!-- patch update js -->
+          <div class="card card-block">
+            <h4 class="card-title">PATCH <small class="text-muted">JavaScript</small></h4>
+            <h6 class="card-subtitle">Add Content</h6>
+            <form id="form-4" class="mt-2">
+              <div class="form-group">
+                <label for="id-4">ID</label>
+                <input type="text" class="form-control" id="id-4" placeholder="1" tabindex="11">
+              </div>
+              <div class="form-group">
+                <label for="title-4">Title</label>
+                <input type="text" class="form-control" id="title-4" placeholder="My Awesome Title" tabindex="12">
+              </div>
+              <button id="btn-submit-4" type="button" class="btn btn-primary" tabindex="13">Send</button>
+            </form>
+            <div id="res-4"></div>
+          </div>
+          <!-- get one item js -->
+          <div class="card card-block">
+            <h4 class="card-title">GET <small class="text-muted">JavaScript</small></h4>
+            <h6 class="card-subtitle">Load one Content</h6>
+            <form id="form-5" class="mt-2">
+              <div class="form-group">
+                <label for="id-5">ID</label>
+                <input type="text" class="form-control" id="id-5" placeholder="1" tabindex="14">
+              </div>
+              <button id="btn-submit-5" type="button" class="btn btn-primary" tabindex="15">Send</button>
+            </form>
+            <div id="res-5"></div>
+          </div>
+          <!-- get all itens and filter js -->
+          <div class="card card-block">
+            <h4 class="card-title">GET <small class="text-muted">JavaScript</small></h4>
+            <h6 class="card-subtitle">Load All Users</h6>
+            <form id="form-5" class="mt-2">
+              <div class="form-group">
+                <label for="filter-6">Filter by</label>
+                <select name="filter-6" id="filter-6" class="form-control" tabindex="16">
+                  <option value="name">name</option>
+                  <option value="username">username</option>
+                  <option value="email">email</option>
+                  <option value="website">website</option>
+                </select>
+              </div>
+              <button id="btn-submit-6" type="button" class="btn btn-primary" tabindex="17">Send</button>
+            </form>
+            <div id="res-6"></div>
           </div>
         </div>
       </div>
-      <div class="row mt-2">
-        <div class="offset-xs-1 col-xs-10">
-        <hr>
-    <footer class="footer text-xs-center">
-      <p>
-        <span class="text-muted"><a href="https://github.com/danvitoriano/rest-api-examples">REST API Examples</a> is maintained by <a href="https://github.com/danvitoriano">danvitoriano</a> and it uses <a href="https://jsonplaceholder.typicode.com">JSONPlaceholder</a>.</span>
-      </p>
-      <p class="text-muted">
-        <small>You can open an issue or fork to send a Pull Request if you'd like to improve this project.</small>
-      </p>
-    </footer>
     </div>
+    <!-- footer -->
+    <div class="row mt-2">
+      <div class="offset-xs-1 col-xs-10">
+        <hr>
+        <footer class="footer text-xs-center">
+          <p>
+            <span class="text-muted"><a href="https://github.com/danvitoriano/rest-api-examples">REST API Examples</a> is maintained by <a href="https://github.com/danvitoriano">danvitoriano</a> and it uses <a href="https://jsonplaceholder.typicode.com">JSONPlaceholder</a>.</span>
+          </p>
+          <p class="text-muted">
+            <small>You can open an issue or fork to send a Pull Request if you'd like to improve this project.</small>
+          </p>
+        </footer>
+      </div>
     </div>
   </div>
-  
   <a href="https://github.com/danvitoriano/rest-api-examples"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap-4/js/bootstrap.min.js"></script>
