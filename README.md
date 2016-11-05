@@ -1,6 +1,8 @@
 # REST API Examples
 It uses JSONPlaceholder Fake Online REST API for Testing and Prototyping
 
+[https://danvitoriano.github.io/rest-api-examples/]
+
 ## Setup
 
 Git clone this Repo (Needs Node/NPM)
