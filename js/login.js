@@ -1,48 +1,136 @@
 ;
-(function(){
+(function() {
 
-	var api = "https://jsonplaceholder.typicode.com";
+  var api = "https://jsonplaceholder.typicode.com";
+  var userId = 1; // default to JSONPlaceholder API
 
-	$("#btn-submit1").click(function(){
-		var name1 = $("#name1").val();
-		var age1 = $("#age1").val();
-		$.ajax({
-		  type: 'POST',
-		  url: api + '/posts',
-		  data: {	title: name1,
-    					body: age1,
-    					userId: 1},
-		  success: function(data) {
-		    console.log("User added!", data); //the new item is returned with an ID
-		    $("#res1").addClass("alert-success");
-		    $("#res1").html("Name: <b>" + name1 + "</b> | Age: <b>" + age1 + "</b> | ID: <b>" + data.id + "</b>");
-		    $("#form1")[0].reset();
-		  }
-		});
-	});
+  var postJquery = function() {
+    $("#btn-submit-1").click(function() {
+      var title = $("#title-1").val();
+      var body = $("#body-1").val();
+      $.ajax({
+        type: 'POST',
+        url: api + '/posts',
+        dataType: "json",
+        data: {
+          title: title,
+          body: body,
+          userId: userId
+        },
+        success: function(data) {
+          console.log("Content added!", data); //the new item is returned with an ID
+          $("#res-1").html("<p class='text-success mt-2' role=alert>" + JSON.stringify(data) + "</p>");
+          $("#form-1")[0].reset();
+        },
+        error: function(data) {
+          console.log("Content not added!", data); //the new item is returned with an ID
+          $("#res-1").html("<p class='text-danger mt-2' role=alert>" + JSON.stringify(data) + "</p>");
+        }
+      });
+    });
+  }();
 
-	document.getElementById("btn-submit2").addEventListener("click", function(){
-		var name2 = document.getElementById("name2").value;
-		var age2 = document.getElementById("age2").value;
-		var http = new XMLHttpRequest();
-		var params = "title=" + name2 + "&body=" + age2 + "&userId=1";
-		var url = api + "/posts";
+  var postJS = function() {
+    document.getElementById("btn-submit-2").addEventListener("click", function() {
+      var title = document.getElementById("title-2").value;
+      var body = document.getElementById("body-2").value;
+      var http = new XMLHttpRequest();
+      var params = "title=" + title + "&body=" + body + "&userId=" + userId;
+      var url = api + "/posts";
 
-		http.open("POST", url, true);
+      http.open("POST", url, true);
 
-		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-		http.onreadystatechange = function(){
-			if(http.readyState == 4 && http.status >= 200 && http.status <= 299){
-				console.log("User added!", http.responseText);
-		    document.getElementById("res2").className += " alert-success";
-		    var jsonResponse = JSON.parse(http.responseText);
-		    document.getElementById("res2").innerHTML = "Name: <b>" + name2 + "</b> | Age: <b>" + age2 + "</b> | ID: <b>" + jsonResponse["id"] + "</b>";
-		    document.getElementById("form2").reset();
-			}
-		}
-		http.send(params);
-	});
+      http.onreadystatechange = function() {
+        if (http.readyState == 4 && http.status >= 200 && http.status <= 299) {
+          console.log("Content added!", http.responseText);
+          document.getElementById("res-2").innerHTML = "<p class='text-success mt-2' role=alert>" + http.responseText + "</p>";
+          document.getElementById("form-2").reset();
+        } else {
+          console.log("User not added!", http.responseText);
+          document.getElementById("res-2").innerHTML = "<p class='text-danger mt-2' role=alert>" + http.status + ". ID must be from 1 to 100.</p>";
+        }
+      }
+      http.send(params);
+    });
+  }();
 
+  var putJS = function() {
+    document.getElementById("btn-submit-3").addEventListener("click", function() {
+      var id = document.getElementById("id-3").value;
+      var title = document.getElementById("title-3").value;
+      var body = document.getElementById("body-3").value;
+      var http = new XMLHttpRequest();
+      var params = "title=" + title + "&body=" + body + "&userId=" + userId + "&id=" + id;
+      var url = api + "/posts/" + id;
+
+      http.open("PUT", url, true);
+
+      http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+      http.onreadystatechange = function() {
+        if (http.readyState == 4 && http.status >= 200 && http.status <= 299) {
+          console.log("Content updated!", http.responseText);
+          document.getElementById("res-3").innerHTML = "<p class='text-success mt-2' role=alert>" + http.responseText + "</p>";
+          document.getElementById("form-3").reset();
+        } else {
+          console.log("Content not updated!", http.responseText);
+          document.getElementById("res-3").innerHTML = "<p class='text-danger mt-2' role=alert>" + http.status + ". ID must be from 1 to 100.</p>";
+        }
+      }
+      http.send(params);
+    });
+  }();
+
+  var patchJS = function() {
+    document.getElementById("btn-submit-4").addEventListener("click", function() {
+      var id = document.getElementById("id-4").value;
+      var title = document.getElementById("title-4").value;
+      var http = new XMLHttpRequest();
+      var params = "title=" + title;
+      var url = api + "/posts/" + id;
+
+      http.open("PATCH", url, true);
+
+      http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+      http.onreadystatechange = function() {
+        if (http.readyState == 4 && http.status >= 200 && http.status <= 299) {
+          console.log("Content updated!", http.responseText);
+          document.getElementById("res-4").innerHTML = "<p class='text-success mt-2' role=alert>" + http.responseText + "</p>";
+          document.getElementById("form-4").reset();
+        } else {
+          console.log("Content not updated!", http.responseText);
+          document.getElementById("res-4").innerHTML = "<p class='text-danger mt-2' role=alert>" + http.status + ". ID must be from 1 to 100.</p>";
+        }
+      }
+      http.send(params);
+    });
+  }();
+
+  var getJS = function() {
+    document.getElementById("btn-submit-5").addEventListener("click", function() {
+      var id = document.getElementById("id-5").value;
+      var http = new XMLHttpRequest();
+      var url = api + "/posts/" + id;
+
+      http.open("GET", url, true);
+
+      http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+      http.onreadystatechange = function() {
+        if (http.readyState == 4 && http.status >= 200 && http.status <= 299) {
+          console.log("Content loaded!", http.responseText);
+          document.getElementById("res-5").innerHTML = "<p class='text-success mt-2' role=alert>" + http.responseText + "</p>";
+          document.getElementById("form-5").reset();
+        } else {
+          console.log("Content not updated!", http.responseText);
+          document.getElementById("res-5").innerHTML = "<p class='text-danger mt-2' role=alert>" + http.status + ". ID must be from 1 to 100.</p>";
+        }
+      }
+      http.send();
+    });
+  }();
 
 })();
