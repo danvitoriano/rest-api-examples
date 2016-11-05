@@ -177,6 +177,20 @@
       // window.location = "//danvitoriano.auth0.com/auth?response_type=code&client_id=" + CLIENT_ID + "&redirect_uri=" + REDIRECT_URI;
       lock.show();
     });
+
+    lock.on("authenticated", function(authResult) {
+      lock.getProfile(authResult.idToken, function(error, profile) {
+        if (error) {
+          // Handle error
+          console.log("Handle error");
+          return;
+        }
+        localStorage.setItem('id_token', authResult.idToken);
+        // Display user information
+        console.log("Display user information");
+        show_profile_info(profile);
+      });
+    });
   }();
 
 })();
