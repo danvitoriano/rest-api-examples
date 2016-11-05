@@ -167,13 +167,15 @@
 
   var oAuthCodeGrant = function(){
     var CLIENT_ID = "NhfvAEwAkCzlIzi2iH1NMcSylPTWTxPA";
-    var REDIRECT_URI = "https://danvitoriano.github.io/rest-api-examples/";
+    var REDIRECT_URI = "//danvitoriano.github.io/rest-api-examples/index.html";
+    var lock = new Auth0Lock('NhfvAEwAkCzlIzi2iH1NMcSylPTWTxPA', 'danvitoriano.auth0.com');
     // var REDIRECT_URI = http://localhost:3000/
 
     document
     .querySelector("#btn-submit-7")
     .addEventListener("click", function(){
-      window.location = "https://oauth2server.com/auth?response_type=code&client_id=" + CLIENT_ID + "&redirect_uri=" + REDIRECT_URI + "&scope=photos"
+      // window.location = "//danvitoriano.auth0.com/auth?response_type=code&client_id=" + CLIENT_ID + "&redirect_uri=" + REDIRECT_URI;
+      lock.show();
     });
   }();
 
