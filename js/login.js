@@ -24,7 +24,7 @@
         },
         error: function(data) {
           console.log("Content not added!", data); //the new item is returned with an ID
-          $("#res-1").html("<p class='text-danger mt-2' role=alert>" + JSON.stringify(data) + "</p>");
+          $("#res-1").html("<p class='text-danger mt-2' role=alert>Error " + JSON.stringify(data) + "</p>");
         }
       });
     });
@@ -42,16 +42,18 @@
 
       http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-      http.onreadystatechange = function() {
-        if (http.readyState == 4 && http.status >= 200 && http.status <= 299) {
+      http.onload = function() {
+        if (http.readyState === http.DONE) {
+          if (http.status === 201) {
           console.log("Content added!", http.responseText);
           document.getElementById("res-2").innerHTML = "<p class='text-success mt-2' role=alert>" + http.responseText + "</p>";
           document.getElementById("form-2").reset();
         } else {
           console.log("User not added!", http.responseText);
-          document.getElementById("res-2").innerHTML = "<p class='text-danger mt-2' role=alert>" + http.status + ". ID must be from 1 to 100.</p>";
+          document.getElementById("res-2").innerHTML = "<p class='text-danger mt-2' role=alert>Error " + http.status + ". ID must be from 1 to 100.</p>";
         }
       }
+    }
       http.send(params);
     });
   }();
@@ -69,16 +71,18 @@
 
       http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-      http.onreadystatechange = function() {
-        if (http.readyState == 4 && http.status >= 200 && http.status <= 299) {
+      http.onload = function() {
+        if (http.readyState === http.DONE) {
+          if (http.status === 200) {
           console.log("Content updated!", http.responseText);
           document.getElementById("res-3").innerHTML = "<p class='text-success mt-2' role=alert>" + http.responseText + "</p>";
           document.getElementById("form-3").reset();
         } else {
           console.log("Content not updated!", http.responseText);
-          document.getElementById("res-3").innerHTML = "<p class='text-danger mt-2' role=alert>" + http.status + ". ID must be from 1 to 100.</p>";
+          document.getElementById("res-3").innerHTML = "<p class='text-danger mt-2' role=alert>Error " + http.status + ". ID must be from 1 to 100.</p>";
         }
       }
+    }
       http.send(params);
     });
   }();
@@ -93,23 +97,23 @@
 
       http.open("PATCH", url, true);
 
-      http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-      http.onreadystatechange = function() {
-        if (http.readyState == 4 && http.status >= 200 && http.status <= 299) {
+      http.onload = function() {
+        if (http.readyState === http.DONE) {
+          if (http.status === 200) {
           console.log("Content updated!", http.responseText);
           document.getElementById("res-4").innerHTML = "<p class='text-success mt-2' role=alert>" + http.responseText + "</p>";
           document.getElementById("form-4").reset();
         } else {
           console.log("Content not updated!", http.responseText);
-          document.getElementById("res-4").innerHTML = "<p class='text-danger mt-2' role=alert>" + http.status + ". ID must be from 1 to 100.</p>";
+          document.getElementById("res-4").innerHTML = "<p class='text-danger mt-2' role=alert>Error " + http.status + ". ID must be from 1 to 100.</p>";
         }
+      }
       }
       http.send(params);
     });
   }();
 
-  var getJS = function() {
+  var getOneItemJS = function() {
     document.getElementById("btn-submit-5").addEventListener("click", function() {
       var id = document.getElementById("id-5").value;
       var http = new XMLHttpRequest();
@@ -117,47 +121,45 @@
 
       http.open("GET", url, true);
 
-      http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-      http.onload = function () {
-			    if (http.readyState === http.DONE) {
-			        if (http.status === 200) {
-          console.log("Content loaded!", http.responseText);
-          document.getElementById("res-5").innerHTML = "<p class='text-success mt-2' role=alert>" + http.responseText + "</p>";
-          document.getElementById("form-5").reset();
-        } else {
-          console.log("Content not updated!", http.responseText);
-          document.getElementById("res-5").innerHTML = "<p class='text-danger mt-2' role=alert>" + http.status + ". ID must be from 1 to 100.</p>";
+      http.onload = function() {
+        if (http.readyState === http.DONE) {
+          if (http.status === 200) {
+            console.log("Content loaded!", http.responseText);
+            document.getElementById("res-5").innerHTML = "<p class='text-success mt-2' role=alert>" + http.responseText + "</p>";
+            document.getElementById("form-5").reset();
+          } else {
+            console.log("Content not updated!", http.responseText);
+            document.getElementById("res-5").innerHTML = "<p class='text-danger mt-2' role=alert>Error " + http.status + ". ID must be from 1 to 100.</p>";
+          }
         }
-      }
       }
       http.send(null);
     });
   }();
 
-  var getAllFilterJS = function() {
+  var getAllItensFilterJS = function() {
     document.getElementById("btn-submit-6").addEventListener("click", function() {
       var http = new XMLHttpRequest();
       var url = api + "/users";
 
       http.open("GET", url, true);
 
-      http.onload = function () {
-			    if (http.readyState === http.DONE) {
-			        if (http.status === 200) {
-			            console.log("Users loaded!", http.responseText);
-				          var obj = JSON.parse(http.responseText);
-				          var result = obj.map(function(a) {
-				          	var filterParam = document.getElementById("filter-6").value;
-				          	return a[filterParam];
-				          });
-				          document.getElementById("res-6").innerHTML = "<p class='text-success mt-2' role=alert>" + result.toString().replace(/,/g,"; ")  + "</p>";
-			        } else {
-						    console.log("Users not loaded!", http.responseText);
-			          document.getElementById("res-6").innerHTML = "<p class='text-danger mt-2' role=alert>" + http.status + "</p>";
-			        }
-			    }
-			};
+      http.onload = function() {
+        if (http.readyState === http.DONE) {
+          if (http.status === 200) {
+            console.log("Users loaded!", http.responseText);
+            var obj = JSON.parse(http.responseText);
+            var result = obj.map(function(a) {
+              var filterParam = document.getElementById("filter-6").value;
+              return a[filterParam];
+            });
+            document.getElementById("res-6").innerHTML = "<p class='text-success mt-2' role=alert>" + result.toString().replace(/,/g, "; ") + "</p>";
+          } else {
+            console.log("Users not loaded!", http.responseText);
+            document.getElementById("res-6").innerHTML = "<p class='text-danger mt-2' role=alert>Error " + http.status + "</p>";
+          }
+        }
+      };
 
       http.send(null);
     });
