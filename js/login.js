@@ -167,8 +167,8 @@
 
   var oAuthCodeGrant = function(){
     var CLIENT_ID = "NhfvAEwAkCzlIzi2iH1NMcSylPTWTxPA";
-    var CLIENT_SECRET = "EZnBKz5mxenJpImttsl2o0aT9CvVXiD7Gqlsv1Hpno2BV4E2ICUU6w2p6spuw3Gf";
-    var REDIRECT_URI = "https://danvitoriano.github.io/rest-api-examples/index.html";
+    var CLIENT_SECRET = "Ckab1d-TB1WHPf_6vJs49DoqJmAOL8EqXup0zBovdinV4NuQVf0wZ39ANm9w_c5j";
+    var REDIRECT_URI = "https://danvitoriano.github.io/rest-api-examples/dashboard.html";
     var lock = new Auth0Lock('NhfvAEwAkCzlIzi2iH1NMcSylPTWTxPA', 'danvitoriano.auth0.com');
     // var REDIRECT_URI = http://localhost:3000/
 
@@ -191,12 +191,11 @@
         console.log("Display user information");
         var http = new XMLHttpRequest();
         var idToken = window.localStorage.id_token;
-        var payload = "grant_type=authorization_code&code=" + idToken + "&redirect_uri=" + REDIRECT_URI + "&client_id=" + CLIENT_ID + "&client_secret=" +  + CLIENT_SECRET;
+        var params = "grant_type=authorization_code&code=" + idToken + "&redirect_uri=" + REDIRECT_URI + "&client_id=" + CLIENT_ID + "&client_secret=" +  + CLIENT_SECRET;
         var url = "//danvitoriano.auth0.com/oauth/token";
 
         http.open("POST", url, true);
 
-        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         
         http.onload = function() {
