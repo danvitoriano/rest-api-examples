@@ -262,4 +262,84 @@
 		  retrieve_profile();
     }();
 
+    var oAuthCustomLogin = function(){
+    	var auth0 = new Auth0({
+		    domain: "danvitoriano.auth0.com",
+		    clientID: "NhfvAEwAkCzlIzi2iH1NMcSylPTWTxPA",
+		    callbackOnLocationHash: true,
+		    callbackURL: 'https://danvitoriano.github.io/rest-api-examples/',
+		  });
+
+		  document.getElementById('btn-login-9').addEventListener('click', function() {
+		    var username = document.getElementById('title-9').value;
+		    var password = document.getElementById('body-9').value;
+		    auth0.login({
+		      connection: 'Username-Password-Authentication',
+		      responseType: 'token',
+		      email: username,
+		      password: password,
+		    }, function(err) {
+		      if (err) {
+		        alert("something went wrong: " + err.message);
+		      } else {
+		        show_logged_in(username);
+		      }
+		    });
+		  });
+
+		  document.getElementById('btn-register').addEventListener('click', function() {
+		    var username = document.getElementById('username').value;
+		    var password = document.getElementById('password').value;
+		    auth0.signup({
+		      connection: 'Username-Password-Authentication',
+		      responseType: 'token',
+		      email: username,
+		      password: password,
+		    }, function(err) {
+		      if (err) alert("something went wrong: " + err.message);
+		    });
+		  });
+
+		  document.getElementById('btn-google').addEventListener('click', function() {
+		    auth0.login({
+		      connection: 'google-oauth2'
+		    }, function(err) {
+		      if (err) alert("something went wrong: " + err.message);
+		    });
+		  });
+
+		  document.getElementById('btn-logout-9').addEventListener('click', function() {
+		     localStorage.removeItem('oAuthCustomLogin');
+		     window.location.href = "/rest-api-examples/";
+		  })
+
+		  var show_logged_in = function(username) {
+		    document.querySelector('form.form-signin').style.display = "none";
+		    document.querySelector('div.logged-in').style.display = "block";
+		  };
+
+		  var show_sign_in = function() {
+		    document.querySelector('div.logged-in').style.display = "none";
+		    document.querySelector('form.form-signin').style.display = "block";
+		  };
+
+		  var parseHash = function() {
+		    var token = localStorage.getItem('oAuthCustomLogin');
+		    if (token) {
+		      show_logged_in();
+		    } else {
+		      var result = auth0.parseHash(window.location.hash);
+		      if (result && result.idToken) {
+		        localStorage.setItem('oAuthCustomLogin', result.idToken);
+		        show_logged_in();
+		      } else if (result && result.error) {
+		        alert('error: ' + result.error);
+		        show_sign_in();
+		      }
+		    }
+		  };
+
+		  parseHash();
+    }();
+
 })();
