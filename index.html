@@ -19,6 +19,11 @@
           <p class="lead">Examples</p>
           <hr class="my-2">
           <p>Test and Prototype with <a href="https://jsonplaceholder.typicode.com">JSONPlaceholder</a> Fake Online REST API</p>
+          <p>
+            <small>OAuth 2 Examples: <a href="danvitoriano/auth0-javascript-spa">danvitoriano/auth0-javascript-spa</a> forked from <a href="auth0-samples/auth0-javascript-spa">auth0-samples/auth0-javascript-spa</a><br>
+            Built with <a href="https://github.com/twbs/bootstrap/tree/v4-dev">Bootstrap 4</a>
+            </small>
+          </p>
         </div>
       </div>
     </div>
@@ -129,12 +134,21 @@
             </form>
             <div id="res-6"></div>
           </div>
-          <!-- oauth 2 autorization code grant type -->
+          <!-- oauth 2 simples login -->
           <div class="card card-block">
             <h4 class="card-title">OAuth 2 <small class="text-muted"></small></h4>
-            <h6 class="card-subtitle">Authorization Code</h6>
-            <a id="btn-submit-7" class="btn btn-primary mt-1" tabindex="17">Send</a>
-            <div id="res-7"></div>
+            <h6 class="card-subtitle">Simple Login</h6>
+            <a id="btn-login-7" class="btn btn-primary mt-1" tabindex="18">Login</a>
+            <a id="btn-logout-7" class="btn btn-secondary mt-1" tabindex="19" style="display:none">Logout</a>
+          </div>
+          <!-- oauth 2 login get profile -->
+          <div class="card card-block">
+            <h4 class="card-title">OAuth 2 <small class="text-muted"></small></h4>
+            <h6 class="card-subtitle">Get Profile</h6>
+            <img alt="avatar" id="avatar" style="max-width:100%; display:none;" class="mt-1">
+            <p id="nickname" style="display:none"></p>
+            <a id="btn-login-8" class="btn btn-primary mt-1" tabindex="20">Login</a>
+            <a id="btn-logout-8" class="btn btn-secondary mt-1" tabindex="21" style="display:none">Logout</a>
           </div>
         </div>
       </div>
@@ -145,10 +159,10 @@
         <hr>
         <footer class="footer text-xs-center">
           <p>
-            <span class="text-muted"><a href="https://github.com/danvitoriano/rest-api-examples">REST API Examples</a> is maintained by <a href="https://github.com/danvitoriano">danvitoriano</a> and it uses <a href="https://jsonplaceholder.typicode.com">JSONPlaceholder</a>.</span>
+            <span class="text-muted"><a href="https://github.com/danvitoriano/rest-api-examples">REST API Examples</a> is maintained by <a href="https://github.com/danvitoriano">danvitoriano</a> and it uses <a href="https://jsonplaceholder.typicode.com">JSONPlaceholder</a> and <a href="auth0-samples/auth0-javascript-spa">OAuth 2 Samples</a>.</span>
           </p>
           <p class="text-muted">
-            <small>You can open an issue or fork to send a Pull Request if you'd like to improve this project.</small>
+            <small>Fork me on <a href="https://github.com/danvitoriano/rest-api-examples">GitHub</a>, open an issue or send a Pull Request to support this project.</small>
           </p>
         </footer>
       </div>
