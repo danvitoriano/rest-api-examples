@@ -196,7 +196,7 @@
 
 		  var logout = function() {
 		    localStorage.removeItem('oAuthSimpleLogin');
-		    window.location.href = "/";
+		    window.location.href = "/rest-api-examples/";
 		  };
 
 		  init();
@@ -256,7 +256,7 @@
 
 		  var logout = function() {
 		    localStorage.removeItem('oAuthProfileLogin');
-		    window.location.href = "/";
+		    window.location.href = "/rest-api-examples/";
 		  };
 
 		  retrieve_profile();
