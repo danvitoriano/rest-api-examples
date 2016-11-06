@@ -136,19 +136,41 @@
           </div>
           <!-- oauth 2 simples login -->
           <div class="card card-block">
-            <h4 class="card-title">OAuth 2 <small class="text-muted"></small></h4>
+            <h4 class="card-title">OAuth 2 <small class="text-muted">JavaScript</small></h4>
             <h6 class="card-subtitle">Simple Login</h6>
             <a id="btn-login-7" class="btn btn-primary mt-1" tabindex="18">Login</a>
             <a id="btn-logout-7" class="btn btn-secondary mt-1" tabindex="19" style="display:none">Logout</a>
           </div>
           <!-- oauth 2 login get profile -->
           <div class="card card-block">
-            <h4 class="card-title">OAuth 2 <small class="text-muted"></small></h4>
+            <h4 class="card-title">OAuth 2 <small class="text-muted">JavaScript</small></h4>
             <h6 class="card-subtitle">Get Profile</h6>
             <img alt="avatar" id="avatar" style="max-width:100%; display:none;" class="mt-1">
             <p id="nickname" style="display:none"></p>
             <a id="btn-login-8" class="btn btn-primary mt-1" tabindex="20">Login</a>
             <a id="btn-logout-8" class="btn btn-secondary mt-1" tabindex="21" style="display:none">Logout</a>
+          </div>
+          <!-- oauth 2 custom login -->
+          <div class="card card-block">
+            <h4 class="card-title">OAuth 2 <small class="text-muted">JavaScript</small></h4>
+            <h6 class="card-subtitle">Custom Login</h6>
+            <form id="form-9" class="mt-2 form-signin">
+              <div class="form-group">
+                <label for="title-9">E-mail</label>
+                <input type="email" class="form-control" id="title-9" placeholder="My Awesome Title" tabindex="22"  required>
+              </div>
+              <div class="form-group">
+                <label for="body-9">Password</label>
+                <input type="password" class="form-control" id="body-9" placeholder="This is a sample body text post." tabindex="23" required>
+              </div>
+              <a id="btn-login-9" class="btn btn-primary mt-1" tabindex="24">Login</a>
+              <button class="btn mt-1 btn-danger" type="button" id="btn-google">Google</button>
+              <button class="btn btn-success mt-1" type="button" id="btn-register">Sign Up</button>
+            </form>
+            <div class="form-signin logged-in">
+              <a id="btn-logout-9" class="btn btn-secondary mt-1" tabindex="25">Logout</a
+            </div>
+            <div id="res-9"></div>
           </div>
         </div>
       </div>
