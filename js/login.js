@@ -288,8 +288,8 @@
 		  });
 
 		  document.getElementById('btn-register').addEventListener('click', function() {
-		    var username = document.getElementById('username').value;
-		    var password = document.getElementById('password').value;
+		    var username = document.getElementById('title-9').value;
+		    var password = document.getElementById('body-9').value;
 		    auth0.signup({
 		      connection: 'Username-Password-Authentication',
 		      responseType: 'token',
