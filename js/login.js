@@ -167,7 +167,8 @@
 
   var oAuthCodeGrant = function(){
     var CLIENT_ID = "NhfvAEwAkCzlIzi2iH1NMcSylPTWTxPA";
-    var REDIRECT_URI = "//danvitoriano.github.io/rest-api-examples/index.html";
+    var CLIENT_SECRET = "EZnBKz5mxenJpImttsl2o0aT9CvVXiD7Gqlsv1Hpno2BV4E2ICUU6w2p6spuw3Gf";
+    var REDIRECT_URI = "https://danvitoriano.github.io/rest-api-examples/index.html";
     var lock = new Auth0Lock('NhfvAEwAkCzlIzi2iH1NMcSylPTWTxPA', 'danvitoriano.auth0.com');
     // var REDIRECT_URI = http://localhost:3000/
 
@@ -188,7 +189,37 @@
         localStorage.setItem('id_token', authResult.idToken);
         // Display user information
         console.log("Display user information");
-        show_profile_info(profile);
+        var http = new XMLHttpRequest();
+        var idToken = window.localStorage.id_token;
+        var payload = "grant_type=authorization_code&code=" + idToken + "&redirect_uri=" + REDIRECT_URI + "&client_id=" + CLIENT_ID + "&client_secret=" +  + CLIENT_SECRET;
+        var url = "//danvitoriano.auth0.com/oauth/token";
+
+        http.open("POST", url, true);
+
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        
+        http.onload = function() {
+        if (http.readyState === http.DONE) {
+          if (http.status === 200) {
+            // console.log("Users loaded!", http.responseText);
+            var obj = JSON.parse(http.responseText);
+            // var result = obj.map(function(a) {
+            //   var filterParam = document.getElementById("filter-6").value;
+            //   return a[filterParam];
+            // });
+            document.getElementById("res-6").innerHTML = "<p class='text-success mt-2' role=alert>" + obj + "</p>";
+          } else {
+            console.log("Users not loaded!", http.responseText);
+            document.getElementById("res-6").innerHTML = "<p class='text-danger mt-2' role=alert>Error " + http.status + "</p>";
+          }
+        }
+        http.send(params);
+      };
+
+      
+        // show_profile_info(profile);
+
       });
     });
   }();
