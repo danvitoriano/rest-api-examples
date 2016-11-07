@@ -41,7 +41,7 @@
 	        success: function(data) {
 	          console.log("access_token!", access_token); //the new item is returned with an ID
 
-	          $("#res-10").html("<p class='text-success mt-2' role=alert>" + data.email + "</p>");
+	          $("#res-10").html("<p class='text-success mt-2' role=alert>" + data.email + ", " + data.name + ", " + data.family_name + " </p>");
 	        },
 	        error: function() {
 	          console.log("Content not added!", access_token); //the new item is returned with an ID
