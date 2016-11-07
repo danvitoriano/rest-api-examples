@@ -421,7 +421,7 @@
 			  // });
 
 			  $.ajax({
-	        type: 'POST',
+	        type: 'GET',
 	        cache: false,
 	        url: 'https://danvitoriano.auth0.com/userinfo',
 	        headers: { "Authorization": "Bearer " + access_token },
