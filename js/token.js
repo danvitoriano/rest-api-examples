@@ -24,7 +24,7 @@
 		  var id_token = getIdToken();
 
 		  // Use the access token to make API calls
-			window.addEventListener('load', function() {
+			$('#get-appointments').click(function(e) {
 			  e.preventDefault();
 
 			  // $.ajax({
