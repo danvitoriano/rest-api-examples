@@ -166,21 +166,21 @@
     }();
 
     var oAuthSimpleLogin = function(){
-    	var lock = new Auth0Lock('NhfvAEwAkCzlIzi2iH1NMcSylPTWTxPA', 'danvitoriano.auth0.com');
+    	var lock1 = new Auth0Lock('NhfvAEwAkCzlIzi2iH1NMcSylPTWTxPA', 'danvitoriano.auth0.com');
 
 		  // buttons
 		  var btn_login = document.getElementById('btn-login-7');
 		  var btn_logout = document.getElementById('btn-logout-7');
 
 		  btn_login.addEventListener('click', function() {
-		    lock.show();
+		    lock1.show();
 		  });
 
 		  btn_logout.addEventListener('click', function() {
 		    logout();
 		  });
 
-		  lock.on("authenticated", function(authResult) {
+		  lock1.on("authenticated", function(authResult) {
 		    localStorage.setItem('oAuthSimpleLogin', authResult.idToken);
 		    btn_login.style.display = "none";
 		    btn_logout.style.display = "inline-block";
@@ -203,22 +203,22 @@
     }();
 
     var oAuthProfileLogin = function() {
-    	var lock = new Auth0Lock('NhfvAEwAkCzlIzi2iH1NMcSylPTWTxPA', 'danvitoriano.auth0.com');
+    	var lock2 = new Auth0Lock('NhfvAEwAkCzlIzi2iH1NMcSylPTWTxPA', 'danvitoriano.auth0.com');
 
 		  // buttons
 		  var btn_login = document.getElementById('btn-login-8');
 		  var btn_logout = document.getElementById('btn-logout-8');
 
 		  btn_login.addEventListener('click', function() {
-		    lock.show();
+		    lock2.show();
 		  });
 
 		  btn_logout.addEventListener('click', function() {
 		    logout();
 		  });
 
-		  var lockOnoAuthProfileLogin = lock.on("authenticated", function(authResult) {
-		    lock.getProfile(authResult.idToken, function(error, profile) {
+		  lock2.on("authenticated", function(authResult) {
+		    lock2.getProfile(authResult.idToken, function(error, profile) {
 		      if (error) {
 		        // Handle error
 		        return;
@@ -229,13 +229,11 @@
 		    });
 		  });
 
-		  lockOnoAuthProfileLogin();
-
 		  //retrieve the profile:
 		  var retrieve_profile = function() {
 		    var id_token = localStorage.getItem('oAuthProfileLogin');
 		    if (id_token) {
-		      lock.getProfile(id_token, function (err, profile) {
+		      lock2.getProfile(id_token, function (err, profile) {
 		        if (err) {
 		          return alert('There was an error getting the profile: ' + err.message);
 		        }
