@@ -396,6 +396,7 @@
 
 		function getAccessToken() {
 		  return getParameterByName('access_token');
+		  console.log("access_token!", access_token); //the new item is returned with an ID
 		}
 
 		function getIdToken() {
@@ -430,7 +431,7 @@
 	          $("#form-1")[0].reset();
 	        },
 	        error: function() {
-	          console.log("Content not added!", data); //the new item is returned with an ID
+	          console.log("Content not added!", access_token); //the new item is returned with an ID
 	          $("#res-10").html("<p class='text-danger mt-2' role=alert>Error " + access_token + "</p>");
 	        }
 	      });
