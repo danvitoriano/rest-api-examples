@@ -217,7 +217,7 @@
 		    logout();
 		  });
 
-		  lock.on("authenticated", function(authResult) {
+		  var lockOnoAuthProfileLogin = lock.on("authenticated", function(authResult) {
 		    lock.getProfile(authResult.idToken, function(error, profile) {
 		      if (error) {
 		        // Handle error
@@ -228,6 +228,8 @@
 		      show_profile_info(profile);
 		    });
 		  });
+
+		  lockOnoAuthProfileLogin();
 
 		  //retrieve the profile:
 		  var retrieve_profile = function() {
