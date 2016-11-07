@@ -413,11 +413,29 @@
 			$('#get-appointments').click(function(e) {
 			  e.preventDefault();
 
+			  // $.ajax({
+			  //   cache: false,
+			  //   url: "https://danvitoriano.auth0.com/userinfo",
+			  //   headers: { "Authorization": "Bearer " + access_token }
+			  // });
+
 			  $.ajax({
-			    cache: false,
-			    url: "https://danvitoriano.auth0.com/userinfo",
-			    headers: { "Authorization": "Bearer " + access_token }
-			  });
+	        type: 'POST',
+	        cache: false,
+	        url: 'https://danvitoriano.auth0.com/userinfo',
+	        headers: { "Authorization": "Bearer " + access_token },
+	        success: function() {
+	          console.log("access_token!", access_token); //the new item is returned with an ID
+	          $("#res-10").html("<p class='text-success mt-2' role=alert>" + access_token + "</p>");
+	          $("#form-1")[0].reset();
+	        },
+	        error: function() {
+	          console.log("Content not added!", data); //the new item is returned with an ID
+	          $("#res-10").html("<p class='text-danger mt-2' role=alert>Error " + access_token + "</p>");
+	        }
+	      });
+
+
 			});
 		});
   }();
