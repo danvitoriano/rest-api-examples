@@ -11,167 +11,10 @@
 
 <body>
   <div class="container">
-    <!-- header -->
-    <div class="row">
-      <div class="col-xs-10 offset-xs-1">
-        <div class="jumbotron mt-2 text-xs-center">
-          <h1 class="display-4">REST API</h1>
-          <p class="lead">Examples</p>
-          <hr class="my-2">
-          <p>Test and Prototype with <a href="https://jsonplaceholder.typicode.com">JSONPlaceholder</a> Fake Online REST API</p>
-          <p>
-            <small>OAuth 2 Examples: <a href="danvitoriano/auth0-javascript-spa">danvitoriano/auth0-javascript-spa</a> forked from <a href="auth0-samples/auth0-javascript-spa">auth0-samples/auth0-javascript-spa</a><br>
-            Built with <a href="https://github.com/twbs/bootstrap/tree/v4-dev">Bootstrap 4</a>
-            </small>
-          </p>
-        </div>
-      </div>
-    </div>
     <!-- content -->
     <div class="row">
       <div class="offset-xs-1 col-xs-10">
         <div class="card-columns">
-          <!-- post add jquery -->
-          <div class="card card-block">
-            <h4 class="card-title">POST <small class="text-muted">jQuery</small></h4>
-            <h6 class="card-subtitle">Add Content</h6>
-            <form id="form-1" class="mt-2">
-              <div class="form-group">
-                <label for="title-1">Title</label>
-                <input type="text" class="form-control" id="title-1" placeholder="My Awesome Title" tabindex="1">
-              </div>
-              <div class="form-group">
-                <label for="body-1">Body</label>
-                <input type="text" class="form-control" id="body-1" placeholder="This is a sample body text post." tabindex="2">
-              </div>
-              <button id="btn-submit-1" type="button" class="btn btn-primary" tabindex="3">Send</button>
-            </form>
-            <div id="res-1"></div>
-          </div>
-          <!-- post add js -->
-          <div class="card card-block">
-            <h4 class="card-title">POST <small class="text-muted">JavaScript</small></h4>
-            <h6 class="card-subtitle">Add Content</h6>
-            <form id="form-2" class="mt-2">
-              <div class="form-group">
-                <label for="title-2">Title</label>
-                <input type="text" class="form-control" id="title-2" placeholder="My Awesome Title" tabindex="4">
-              </div>
-              <div class="form-group">
-                <label for="body-2">Body</label>
-                <input type="text" class="form-control" id="body-2" placeholder="This is a sample body text post." tabindex="5">
-              </div>
-              <button id="btn-submit-2" type="button" class="btn btn-primary" tabindex="6">Send</button>
-            </form>
-            <div id="res-2"></div>
-          </div>
-          <!-- put update js -->
-          <div class="card card-block">
-            <h4 class="card-title">PUT <small class="text-muted">JavaScript</small></h4>
-            <h6 class="card-subtitle">Add Content</h6>
-            <form id="form-3" class="mt-2">
-              <div class="form-group">
-                <label for="id-3">ID</label>
-                <input type="text" class="form-control" id="id-3" placeholder="1" tabindex="7">
-              </div>
-              <div class="form-group">
-                <label for="title-3">Title</label>
-                <input type="text" class="form-control" id="title-3" placeholder="My Awesome Title" tabindex="8">
-              </div>
-              <div class="form-group">
-                <label for="body-3">Body</label>
-                <input type="text" class="form-control" id="body-3" placeholder="This is a sample body text post." tabindex="9">
-              </div>
-              <button id="btn-submit-3" type="button" class="btn btn-primary" tabindex="10">Send</button>
-            </form>
-            <div id="res-3"></div>
-          </div>
-          <!-- patch update js -->
-          <div class="card card-block">
-            <h4 class="card-title">PATCH <small class="text-muted">JavaScript</small></h4>
-            <h6 class="card-subtitle">Add Content</h6>
-            <form id="form-4" class="mt-2">
-              <div class="form-group">
-                <label for="id-4">ID</label>
-                <input type="text" class="form-control" id="id-4" placeholder="1" tabindex="11">
-              </div>
-              <div class="form-group">
-                <label for="title-4">Title</label>
-                <input type="text" class="form-control" id="title-4" placeholder="My Awesome Title" tabindex="12">
-              </div>
-              <button id="btn-submit-4" type="button" class="btn btn-primary" tabindex="13">Send</button>
-            </form>
-            <div id="res-4"></div>
-          </div>
-          <!-- get one item js -->
-          <div class="card card-block">
-            <h4 class="card-title">GET <small class="text-muted">JavaScript</small></h4>
-            <h6 class="card-subtitle">Load one Content</h6>
-            <form id="form-5" class="mt-2">
-              <div class="form-group">
-                <label for="id-5">ID</label>
-                <input type="text" class="form-control" id="id-5" placeholder="1" tabindex="14">
-              </div>
-              <button id="btn-submit-5" type="button" class="btn btn-primary" tabindex="15">Send</button>
-            </form>
-            <div id="res-5"></div>
-          </div>
-          <!-- get all itens and filter js -->
-          <div class="card card-block">
-            <h4 class="card-title">GET <small class="text-muted">JavaScript</small></h4>
-            <h6 class="card-subtitle">Load All Users</h6>
-            <form id="form-5" class="mt-2">
-              <div class="form-group">
-                <label for="filter-6">Filter by</label>
-                <select name="filter-6" id="filter-6" class="form-control" tabindex="16">
-                  <option value="name">name</option>
-                  <option value="username">username</option>
-                  <option value="email">email</option>
-                  <option value="website">website</option>
-                </select>
-              </div>
-              <button id="btn-submit-6" type="button" class="btn btn-primary" tabindex="17">Send</button>
-            </form>
-            <div id="res-6"></div>
-          </div>
-          <!-- oauth 2 simples login -->
-          <div class="card card-block">
-            <h4 class="card-title">OAuth 2 <small class="text-muted">JavaScript</small></h4>
-            <h6 class="card-subtitle">Simple Login</h6>
-            <a id="btn-login-7" class="btn btn-primary mt-1" tabindex="18">Login</a>
-            <a id="btn-logout-7" class="btn btn-secondary mt-1" tabindex="19" style="display:none">Logout</a>
-          </div>
-          <!-- oauth 2 login get profile -->
-          <div class="card card-block">
-            <h4 class="card-title">OAuth 2 <small class="text-muted">JavaScript</small></h4>
-            <h6 class="card-subtitle">Get Profile</h6>
-            <img alt="avatar" id="avatar" style="max-width:100%; display:none;" class="mt-1">
-            <p id="nickname" style="display:none"></p>
-            <a id="btn-login-8" class="btn btn-primary mt-1" tabindex="20">Login</a>
-            <a id="btn-logout-8" class="btn btn-secondary mt-1" tabindex="21" style="display:none">Logout</a>
-          </div>
-          <!-- oauth 2 custom login -->
-          <div class="card card-block">
-            <h4 class="card-title">OAuth 2 <small class="text-muted">JavaScript</small></h4>
-            <h6 class="card-subtitle">Custom Login</h6>
-            <form id="form-9" class="mt-2 form-signin">
-              <div class="form-group">
-                <label for="title-9">E-mail</label>
-                <input type="email" class="form-control" id="title-9" placeholder="My Awesome Title" tabindex="22"  required>
-              </div>
-              <div class="form-group">
-                <label for="body-9">Password</label>
-                <input type="password" class="form-control" id="body-9" placeholder="This is a sample body text post." tabindex="23" required>
-              </div>
-              <a id="btn-login-9" class="btn btn-primary mt-1" tabindex="24">Login</a>
-              <button class="btn mt-1 btn-danger" type="button" id="btn-google">Google</button>
-              <button class="btn btn-success mt-1" type="button" id="btn-register">Sign Up</button>
-            </form>
-            <div class="form-signin logged-in" style="display:none">
-              <a id="btn-logout-9" class="btn btn-secondary mt-1" tabindex="25">Logout</a
-            </div>
-            <div id="res-9"></div>
-          </div>
           <!-- oauth 2 implicit token -->
           <div class="card card-block">
           <!-- <a href="https://instagram.com/oauth/authorize?response_type=token&client_id=18d0e1f57ead46439a3ea953a76bbf7c&redirect_uri=http://localhost:3000"> -->
@@ -203,7 +46,7 @@
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap-4/js/bootstrap.min.js"></script>
   <script src="//cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
-  <script src="js/login.js" type="text/javascript"></script>
+  <script src="js/token.js" type="text/javascript"></script>
 </body>
 
 </html>
