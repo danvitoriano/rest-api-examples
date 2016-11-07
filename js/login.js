@@ -342,52 +342,6 @@
     parseHash();
   }();
 
-  // var oAuthImplicitGrant = function() {
-  //   $(function() {
-  //     var extractToken = function(hash) {
-  //       var match = hash.match(/access_token=([\w-]+)/);
-  //       return !!match && match[1];
-  //     };
-
-  //     var CLIENT_ID = "NhfvAEwAkCzlIzi2iH1NMcSylPTWTxPA";
-  //     var AUTHORIZATION_ENDPOINT = "https://danvitoriano.auth0.com/authorize";
-  //     var RESOURCE_ENDPOINT = "https://danvitoriano.auth0.com/userinfo";
-
-  //     var token = extractToken(document.location.hash);
-
-  //     if (token) {
-  //       $('div.authenticated').show();
-
-  //       $('span.token').text(token);
-
-  //       $.ajax({
-  //         url: RESOURCE_ENDPOINT,
-  //         beforeSend: function(xhr) {
-  //           xhr.setRequestHeader('Authorization', "OAuth " + token);
-  //           xhr.setRequestHeader('Accept', "application/json");
-  //         },
-  //         success: function(response) {
-  //           var container = $('span.user');
-  //           if (response) {
-  //             container.text(response.username);
-  //           } else {
-  //             container.text("An error occurred.");
-  //           }
-  //         }
-  //       });
-  //     } else {
-  //       $('div.authenticate').show();
-
-  //       var authUrl = AUTHORIZATION_ENDPOINT +
-  //         "?response_type=token" +
-  //         "&client_id=" + CLIENT_ID +
-  //         "&redirect_uri=" + window.location;
-
-  //       $("a.connect").attr("href", authUrl);
-  //     }
-  //   });
-  // }();
-
   var oAuthImplicitGRant = function(){
   	function getParameterByName(name) {
 		  var match = RegExp('[#&]' + name + '=([^&]*)').exec(window.location.hash);
@@ -410,34 +364,6 @@
 		  // if your response_type argument contained id_token
 		  var id_token = getIdToken();
 
-		  // Use the access token to make API calls
-			$('#get-appointments').click(function(e) {
-			  e.preventDefault();
-
-			  // $.ajax({
-			  //   cache: false,
-			  //   url: "https://danvitoriano.auth0.com/userinfo",
-			  //   headers: { "Authorization": "Bearer " + access_token }
-			  // });
-
-			  $.ajax({
-	        type: 'GET',
-	        cache: false,
-	        url: 'https://danvitoriano.auth0.com/userinfo',
-	        headers: { "Authorization": "Bearer " + access_token },
-	        success: function() {
-	          console.log("access_token!", access_token); //the new item is returned with an ID
-	          $("#res-10").html("<p class='text-success mt-2' role=alert>" + access_token + "</p>");
-	          $("#form-1")[0].reset();
-	        },
-	        error: function() {
-	          console.log("Content not added!", access_token); //the new item is returned with an ID
-	          $("#res-10").html("<p class='text-danger mt-2' role=alert>Error " + access_token + "</p>");
-	        }
-	      });
-
-
-			});
 		});
   }();
 
