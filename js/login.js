@@ -415,7 +415,7 @@
 
 			  $.ajax({
 			    cache: false,
-			    url: "http://localhost:7001/api/appointments",
+			    url: "https://danvitoriano.auth0.com/userinfo",
 			    headers: { "Authorization": "Bearer " + access_token }
 			  });
 			});
