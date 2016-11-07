@@ -40,8 +40,14 @@
 	        headers: { "Authorization": "Bearer " + access_token },
 	        success: function(data) {
 	          console.log("access_token!", access_token); //the new item is returned with an ID
-
-	          $("#res-10").html("<p class='text-success mt-2' role=alert>" + data.email + ", " + data.name + ", " + data.family_name + " </p>");
+	          $("#res-10").html("<p class='text-success mt-2' role=alert>Access Token: "
+	          	+ access_token + 
+	          	"<br> Name: " 
+	          	+ data.name + 
+	          	"<br> E-mail: " 
+	          	+ data.email + 
+	          	"<br> Photo: <img alt='avatar' id='avatar-10' style='max-width:100%'' class='mt-1' src='" 
+	          	+ data.picture + "'>");
 	        },
 	        error: function() {
 	          console.log("Content not added!", access_token); //the new item is returned with an ID
