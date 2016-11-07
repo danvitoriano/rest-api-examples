@@ -38,10 +38,10 @@
 	        cache: false,
 	        url: 'https://danvitoriano.auth0.com/userinfo',
 	        headers: { "Authorization": "Bearer " + access_token },
-	        success: function() {
+	        success: function(data) {
 	          console.log("access_token!", access_token); //the new item is returned with an ID
-	          $("#res-10").html("<p class='text-success mt-2' role=alert>" + access_token + "</p>");
-	          $("#form-1")[0].reset();
+
+	          $("#res-10").html("<p class='text-success mt-2' role=alert>" + data.email + "</p>");
 	        },
 	        error: function() {
 	          console.log("Content not added!", access_token); //the new item is returned with an ID
